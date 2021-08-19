@@ -22,7 +22,6 @@
     "eslint": "eslint . --ext js,ts --cache --fix",
     "prettier": "prettier --write './**/*.{js,ts}'",
     "invoke:hello": "npx sls invoke local -f hello --stage local -p fixtures/hello.json",
-    "invoke:world": "npx sls invoke local -f world --stage local -p fixtures/world.json",
     "test:quick": "jest --maxWorkers=4 -c jest.config.ts --no-watchman -u",
     "test:html": "jest --collectCoverage --maxWorkers=4 -c jest.config.ts --colors --no-watchman --verbose --coverage --coverageDirectory './coverage'",
     "test-prepush": "jest --maxWorkers=50% -c jest.config.ts --colors --no-watchman",
@@ -30,10 +29,10 @@
     "localstack:start": "docker-compose up -d",
     "localstack:stop": "docker-compose down",
     "localstack:deploy": "sls deploy --aws-profile localstack",
-    "locaLstack:logs": "docker-compose logs -f",
-    "aws-sso-login": "aws sso login --profile taxis-dev",
-    "sso-login": "NODE_PATH=./ ts-node -r tsconfig-paths/register ./scripts/sso-access.ts profile=taxis-dev",
-    "deploy:dev": "npx sls deploy --aws-profile taxis-dev --stage dev"
+    "localstack:logs": "docker-compose logs -f",
+    "aws-sso-login": "aws sso login --profile indigo-dev",
+    "sso-login": "NODE_PATH=./ ts-node -r tsconfig-paths/register ./scripts/sso-access.ts profile=indigo-dev",
+    "deploy:dev": "npx sls deploy --aws-profile indigo-dev --stage dev"
   },
   "engines": {
     "node": ">=14.15.0"

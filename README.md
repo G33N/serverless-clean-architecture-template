@@ -1,4 +1,45 @@
 # Template Serverless + Localstack
+## Project Architecture
+
+This project implements a simplify mode of [**Clean Architecture**](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+
+![Clean Architecture](./architecture-diagram.jpg)
+
+### Project structure
+
+The project code base is mainly located within the `src` folder. This folder is divided in:
+
+- `bounded-context` - containing code base and configuration for your lambda functions
+- `shared` - containing shared code base between your lambdas
+
+```
+.
+├── tests				         # Unit tests
+├── src
+│   ├── bounded-context          # Lambda configuration and source code folder
+│   │   ├── presentation
+│   │   │   ├── handler.ts
+│   │   │   ├── index.ts
+│   │   │   └── schema.ts
+│   │   ├── application         # Application business logic (Use cases).      
+│   │   │   └── UseCase.ts
+│   │   ├── domain              # Enterprise business logic.
+│   │   │   ├── Entity
+│   │   │   ├── Failures
+│   │   │   └── ValueObjects
+│   │   └── infrastructure      # Interface to communicate with other contexts. (Local and remote resources), repositories.
+│   │
+│   └── shared                  # Lambda shared code
+│       └── apiGateway.ts       # API Gateway specific helpers
+│       └── handlerResolver.ts  # Sharable library for resolving lambda handlers
+│       └── lambda.ts           # Lambda middleware
+│
+├── package.json
+├── serverless.ts               # Serverless service file
+├── tsconfig.json               # Typescript compiler configuration
+├── tsconfig.paths.json         # Typescript paths
+└── webpack.config.js           # Webpack configuration
+```
 
 ## Prerequisite Software
 
@@ -40,22 +81,9 @@ cat ~/.aws/credentials
 
 ## Configure AWS Locally
 
-Create your local profile:
-
 ```shell
-# Set aws profile
-> aws configure sso --profile taxis-dev
+> export AWS_PROFILE=indigo-dev
 ```
-
-These are some configuration values:
-
-```shell
-> sso_start_url = https://0mn1.awsapps.com/start
-> sso_region = us-east-1
-> region = us-east-1
-> output = json
-```
-
 ## Getting the Sources
 
 Clone this repository:

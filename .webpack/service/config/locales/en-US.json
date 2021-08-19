@@ -1,0 +1,15 @@
+{
+  "ERROR.INVALID_PARAMS": "Request has one or more invalid parameters.",
+  "ERROR.NULL_BODY": "Request body is null.",
+  "ERROR.INVALID_FORMAT": "Request body is invalid.",
+  "ERROR.INVALID_JSON": "Invalid body JSON syntax.",
+  "ERROR.INVALID_BODY_SCHEMA": "Invalid body schema.",
+  "ERROR.MALFORMED_SCHEMA": "Malformed schema.",
+  "ERROR.ENTITY_NOT_FOUND": "Entity not found.",
+  "ERROR.ENTITY_DELETED": "Entity was removed.",
+  "ERROR.DEFAULT": "Internal server error.",
+  "ERROR.NOT_IMPLEMENTED_METHOD": "Method not implemented.",
+  "ERROR.NONEXISTENT_ENV_VAR": "Environment variable does not exist.",
+  "ERROR.PARALLEL_PROCESSING": "There was an error processing in parallel.",
+  "SUCCESS.DEFAULT": "Success."
+}

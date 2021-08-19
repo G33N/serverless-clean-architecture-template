@@ -2,8 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@handlers/*": ["src/handlers/*"],
-      "@framework/*": ["src/framework/*"]
+      "@hello/*": ["src/hello/*"],
+      "@shared/*": ["src/shared/*"]
     }
   }
 }
