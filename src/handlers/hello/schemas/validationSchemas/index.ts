@@ -1,0 +1,1 @@
+export { helloSchema } from './helloSchema';

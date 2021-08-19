@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  localstack:
+    image: localstack/localstack:latest
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+      - EDGE_PORT=4566
+      - SERVICES=lambda,s3,cloudformation,sts,apigateway,iam,route53,sqs,ssm
+      - AWS_XRAY_SDK_ENABLED=true
+    ports:
+      - '4566-4597:4566-4597'
+    volumes:
+      - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./bin:/docker-entrypoint-initaws.d"
