@@ -1,4 +1,45 @@
 # Template Serverless + Localstack
+## Project Architecture
+
+This project implements a simplify mode of [**Clean Architecture**](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+
+![Clean Architecture](./architecture-diagram.jpg)
+
+### Project structure
+
+The project code base is mainly located within the `src` folder. This folder is divided in:
+
+- `bounded-context` - containing code base and configuration for your lambda functions
+- `shared` - containing shared code base between your lambdas
+
+```
+.
+├── tests				         # Unit tests
+├── src
+│   ├── bounded-context          # Lambda configuration and source code folder
+│   │   ├── presentation
+│   │   │   ├── handler.ts
+│   │   │   ├── index.ts
+│   │   │   └── schema.ts
+│   │   ├── application         # Application business logic (Use cases).      
+│   │   │   └── UseCase.ts
+│   │   ├── domain              # Enterprise business logic.
+│   │   │   ├── Entity
+│   │   │   ├── Failures
+│   │   │   └── ValueObjects
+│   │   └── infrastructure      # Interface to communicate with other contexts. (Local and remote resources), repositories.
+│   │
+│   └── shared                  # Lambda shared code
+│       └── apiGateway.ts       # API Gateway specific helpers
+│       └── handlerResolver.ts  # Sharable library for resolving lambda handlers
+│       └── lambda.ts           # Lambda middleware
+│
+├── package.json
+├── serverless.ts               # Serverless service file
+├── tsconfig.json               # Typescript compiler configuration
+├── tsconfig.paths.json         # Typescript paths
+└── webpack.config.js           # Webpack configuration
+```
 
 ## Prerequisite Software
 
@@ -15,7 +56,7 @@ It is recommendable to install node via [NVM](https://github.com/nvm-sh/nvm)
 
 ## Set up your AWS Credentials
 
-1. Log in into [Aws Console](https://mna.awsapps.com/start)
+1. Log in into Aws Console
 2. Expand **Aws Account** --> _Command line or programmatic access_
 3. Find and copy **AWS Access Key ID** and **AWS Secret Access Key**
 
@@ -40,33 +81,22 @@ cat ~/.aws/credentials
 
 ## Configure AWS Locally
 
-Create your local profile:
-
 ```shell
-# Set aws profile
-> aws configure sso --profile your-aws-profile
+> export AWS_PROFILE=your-aws-profile
 ```
-
-These are some configuration values:
-
-```shell
-> sso_start_url = https://mna.awsapps.com/start
-> sso_region = us-east-1
-> region = us-east-1
-> output = json
-```
-
 ## Getting the Sources
 
 Clone this repository:
 
+1. Log in to your GitHub account [GitHub](https://github.com) and follow the instruction below:
+
 ```shell
 # Clone
-> git clone git@gitlab.com:mna-open-source/template-serverless-localstack.git
+> git clone https://github.com/G33N/serverless-clean-architecture-template.git
 
 
 # Go to the sources directory:
-> cd template-serverless-localstack
+> cd serverless-clean-architecture-template
 
 ```
 
@@ -91,5 +121,5 @@ yarn sso-login
 To test it, issue the following command
 
 ```
-yarn invoke:world 
+yarn invoke:hello 
 ```
