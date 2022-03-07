@@ -11,17 +11,17 @@ sls logs -f ${functionName} --aws-profile ${awsProfile}
 Replace **${functionName}** with function name and **${awsProfile}** with your AWS profile. For example:
 
 ```shell
-sls logs -f hello --aws-profile indigo-dev
+sls logs -f world --aws-profile aws-mna-profile
 ```
 
 ## Real time logs
 
 ```shell
-sls logs -f hello -t --aws-profile indigo-dev
+sls logs -f world -t --aws-profile aws-mna-profile
 ```
 
 ### Locally
 
 ```shell
-serverless logs -f hello -s local -t
+serverless logs -f world -s local -t
 ```
