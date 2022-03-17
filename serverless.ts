@@ -3,7 +3,7 @@
 import type { AWS } from '@serverless/typescript';
 
 import { custom, environment, packageConfig, statements, vpc } from './config/serverless';
-import * as functions from './src/handlers';
+import * as functions from './src';
 
 const serverlessConfiguration: AWS = {
   service: 'template-serverless-localstack',

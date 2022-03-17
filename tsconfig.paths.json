@@ -1,9 +1,10 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@handlers/*": ["src/handlers/*"],
-      "@framework/*": ["src/framework/*"]
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+          "@hello/*": ["src/hello/*"],
+          "@shared/*": ["src/shared/*"]
+        },
     }
   }
-}
+  
